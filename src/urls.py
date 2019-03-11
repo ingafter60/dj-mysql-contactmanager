@@ -20,3 +20,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('home/', include('app.urls')),
 ]
+# Customizing admin texts
+admin.site.site_header = 'Contacts'
+admin.site.index_title = 'Welcome to project'
+admin.site.site_title  = 'Control Panel'
