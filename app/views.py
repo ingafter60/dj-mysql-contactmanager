@@ -1,33 +1,5 @@
-# # import django modules
-# from django.shortcuts import render, get_object_or_404
-# from django.views.generic import ListView, DetailView
-
-# # import app files
-# from .models import Contact
-
-# # Create your views here.
-# def home(request):
-# 	context = {
-# 		'contacts': Contact.objects.all()	
-# 	}	
-# 	return render(request, 'index.html', context)
-
-# def detail(request, id):
-# 	context = {
-# 		'contact': get_object_or_404(Contact, pk=id)
-# 	}
-# 	return render(request, 'detail.html', context)	
-
-
-# def detail(request, id):
-# 	context = {
-# 		'contact': get_object_or_404(Contact, pk=id)
-# 	}
-# 	return render(request, 'detail.html', context)	
-
-
 # import django modules
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 
 from django.views.generic import ListView, DetailView
 
@@ -44,8 +16,18 @@ class ContactDetailView(DetailView):
 	model 				= Contact 
 	context_object_name = 'contact'
 
-def search(request):
-	context = {
+# def search(request):
+# 	context = {
+	
+# 	}
+# 	return render(request, 'search.html', context)	
 
-	}
-	return render(request, 'search.html', context)		
+def search(request):
+	if request.GET:
+		search_term = request.GET['search_term']
+		context = {
+			'search_term': search_term
+		}
+		return render(request, 'search.html', context)
+	else:
+		return redirect('home')	
