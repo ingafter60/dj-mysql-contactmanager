@@ -43,3 +43,9 @@ class ContactDetailView(DetailView):
 	template_name 		= 'detail.html'
 	model 				= Contact 
 	context_object_name = 'contact'
+
+def search(request):
+	context = {
+
+	}
+	return render(request, 'search.html', context)		
