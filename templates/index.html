@@ -28,7 +28,7 @@
         {% endif %}"
         class="img-fluid" />
         <div class="card-header">
-          <a href="detail.html" class="text-white header-link"
+          <a href="index.html" class="text-white header-link"
             ><i class="fas fa-mars mr-2"></i>{{ contact.name }}</a
           >
         </div>
@@ -54,20 +54,20 @@
         {% endif %}" 
         class="img-fluid" />
         <div class="card-header">
-          <a href="detail.html" class="text-white header-link"
-            ><i class="fas fa-venus mr-2"></i>Jane Ane</a
+          <a href="index.html" class="text-white header-link"
+            ><i class="fas fa-venus mr-2"></i>{{ contact.name }}</a
           >
         </div>
         <div class="card-body pb-0">
           <p>
             <i class="fas fa-at mr-2"></i>
-            <a href="mailto:pinkjune@gmail.com">janeane@gmail.com</a>
+            <a href="mailto:{{ contact.email }}">{{ contact.email }}</a>
           </p>
           <p>
             <i class="fas fa-phone mr-2"></i>
-            <a href="tel:9819090909">9819090909</a>
+            <a href="tel:{{ contact.phone }}">{{ contact.phone }}</a>
           </p>
-          <p><i class="fas fa-info-circle mr-2"></i> Friend</p>
+          <p><i class="fas fa-info-circle mr-2"></i>{{ contact.info }}</p>
         </div>
       </div>
       {% endif %}
