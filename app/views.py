@@ -1,5 +1,5 @@
 # import django modules
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 
 # import app files
 from .models import Contact
@@ -10,3 +10,9 @@ def home(request):
 		'contacts': Contact.objects.all()	
 	}	
 	return render(request, 'index.html', context)
+
+def detail(request, id):
+	context = {
+		'contact': get_object_or_404(Contact, pk=id)
+	}
+	return render(request, 'detail.html', context)	
